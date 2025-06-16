@@ -1,0 +1,147 @@
+
+:root {
+  --bg: #ffffff;
+  --text: #202020;
+  --box: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #111;
+  --box: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+  padding: 2rem;
+}
+
+.logo {
+  width: 30rem;   /* adjust width */
+  height: auto;   /* keeps aspect ratio */
+  margin-bottom: -2rem;
+  margin-top: -8rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 2rem;
+}
+
+/* Countdown */
+.countdown {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.time-box {
+  background: var(--box);
+  border-radius: 15px;
+  padding: 1.5rem 2rem;
+  min-width: 100px;
+  transition: transform 0.3s ease, background 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.time-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffff88;
+}
+
+.flip {
+  font-size: 2rem;
+  font-weight: bold;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.flip span {
+  display: inline-block;
+}
+
+/* Slide up/down animation */
+.slide {
+  animation: slideUpDown 0.5s ease-in-out;
+}
+
+@keyframes slideUpDown {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-10%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.label {
+  display: block;
+  font-size: 0.75em;
+  color: #ccc;
+  margin-top: 0.5rem;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+  width: 50%;
+  background: #444;
+  height: 8px;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #00ffcc;
+  width: 50%;
+  transition: width 1s ease;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  background: none;
+  border: 2px solid var(--text);
+  color: var(--text);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+  background: var(--box);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .countdown {
+    flex-direction: column;
+  }
+
+  .time-box {
+    min-width: 80px;
+    padding: 1rem;
+  }
+}
