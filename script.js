@@ -1,6 +1,6 @@
 
-const launchDate = new Date("2025-06-25T06:00:00").getTime();
-const startDate = new Date("2025-06-10T00:00:00").getTime();
+const launchDate = new Date("2025-06-5T06:00:00").getTime();
+const startDate = new Date("2025-06-1T00:00:00").getTime();
 
 function animateChange(id, newValue) {
   const el = document.getElementById(id);
